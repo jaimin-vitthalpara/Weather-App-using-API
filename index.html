@@ -1,0 +1,77 @@
+<!-- Error in CSS :- line 94, line 6-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather APP using API - Javascript</title>
+
+    <!-- manual CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- boxicon link -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <i class='bx bx-left-arrow-alt'><span>Weather App</span></i>
+        </header>
+        <!-- weather enter city page start-->
+        <section class="input-part">
+            <p class="city-text"></p>
+            <input type="text" placeholder="Enter city name" spellcheck="false">
+            <div class="separator"></div>
+            <button class="location-btn">Get device location</button>
+        </section>
+        <!-- weather enter city page end -->
+
+        <!-- weather deatils start -->
+        <section class="weather-details d-none">
+            <!-- <img src="Images/cloudy.png" alt="cloudy weather"> -->
+            <img src="#" alt="Weather Icons">
+            <!-- <img class="weather_image_icon" src="#" alt="weather icon"> -->
+
+            <div class="temperature">
+                <span class="number current_temp">25</span>
+                <span class="degree">°C</span>
+            </div>
+            <div class="weather description">Broken Cloud</div>
+            <div class="location">
+                <i class='bx bx-map'></i>
+                <span class="location-name">Vadodara, Gujarat</span>
+            </div>
+
+            <div class="bottom-column-details">
+
+                <div class="column-1 feels">
+                    <i class='bx bxs-thermometer'></i>
+                    <div class="details">
+                        <div class="temperature">
+                            <span class="number feel_like_temp">20</span>
+                            <span class="degree-1">°C</span>
+                        </div>
+                        <p class="feels-para">Feels like</p>
+                    </div>
+                </div>
+
+                <div class="column-2 humidity">
+                    <i class='bx bxs-droplet-half'></i>
+                    <div class="details">
+                        <span class="number humidity_data">_ _</span>
+                    </div>
+                    <p class="humidity-para">Humidity</p>
+                </div>
+            </div>
+    </div>
+    </section>
+    <!-- weather details end -->
+    </div>
+</body>
+<script src="main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</html>

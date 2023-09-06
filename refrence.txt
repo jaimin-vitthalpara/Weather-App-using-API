@@ -1,0 +1,137 @@
+youtube :- https://www.youtube.com/watch?v=c1r-NqYkFPc
+
+box-icon :- https://boxicons.com/usage , https://boxicons.com/ , 
+
+input box validation :- https://www.digitalocean.com/community/tutorials/css-styling-form-input-validity 
+
+Openmap weather API :- https://openweathermap.org/api,  API key = 5d647fbd0d9cae0b0d64f0d77ffac791
+
+Openmap weather icons condition :- https://openweathermap.org/weather-conditions
+
+weather Icons :- https://www.flaticon.com/free-icons/weather
+
+
+--> query code ask kaushik sir 
+
+//  code for weather icons
+    const city = info.name;
+    const country = info.sys.country;
+    const { description, ID } = info.weather[0];
+    const { feels_like, humidity, temp } = info.main;
+
+    if (ID == 800) {
+      wIcon.src = "/Images/clear.png";
+    } else if (ID >= 200 || ID <= 232) {
+      wIcon.src = "/Images/storm.png";
+    } else if (ID >= 600 || ID <= 622) {
+      wIcon.src = "/Images/snow.png";
+    } else if (ID >= 701 || ID <= 781) {
+      wIcon.src = "/Images/haze.png";
+    } else if (ID >= 801 || ID <= 804) {
+      wIcon.src = "/Images/cloudy-64.png";
+    } else if ((ID >= 300 || ID <= 321)(ID >= 500 || ID <= 531)) {
+      wIcon.src = "/Images/rain.png";
+    } else {
+      alert("else function");
+      wIcon.src = "/Images/rain.png";
+    }
+
+
+-->> solved code :- 
+//  code for weather icons
+    const city = info.name;
+    const country = info.sys.country;
+
+
+    // const { description, ID } = info.weather[0];
+    const { feels_like, humidity, temp } = info.main;
+
+    //see there is id in small letter, if you are extracting vairable like this const { description, ID } = info.weather[0]; then should name be equal to key
+    const { description, id } = info.weather[0];
+
+    
+    
+    // console.log(info.weather[0]);
+    // let ID = info.weather[0].id;
+    // let description = info.weather[0].description;
+
+    
+    if (id == 800) {
+      wIcon.src = "Images/clear.png";
+    } else if (id >= 200 || id <= 232) {
+      wIcon.src = "Images/storm.png";
+    } else if (id >= 600 || id <= 622) {
+      wIcon.src = "Images/snow.png";
+    } else if (id >= 701 || id <= 781) {
+      wIcon.src = "Images/haze.png";
+    } else if (id >= 801 || id <= 804) {
+      wIcon.src = "Images/cloudy-64.png";
+    } else if ((id >= 300 || id <= 321)(id >= 500 || id <= 531)) {
+      wIcon.src = "Images/rain.png";
+    } else {
+      alert("else function");
+      wIcon.src = "/Images/rain.png";
+    }
+
+
+
+
+--->> fully solved 1000% working
+
+
+function weatherDetails(info) {
+  CityText.classList.replace("loading", "error");
+  if (info.cod == "404") {
+    CityText.innerText = `"${InputField.value}" isn't a valid city name `;
+  } else if (info.cod == "400") {
+    var weather_section = document.querySelector(".weather-details");
+    weather_section.classList.add("d-none");
+    weather_section.classList.remove("d-flex");
+  } else {
+    CityText.classList.remove("loading", "error");
+    wrapper.classList.add("active");
+
+    //  code for weather icons
+    const city = info.name;
+    const country = info.sys.country;
+    const { description, id } = info.weather[0];
+    const { feels_like, humidity, temp } = info.main;
+
+    console.log(info.weather[0]);
+    // let id = info.weather[0].id;
+    // let Description = info.weather[0].description;
+
+    if (id == 800) {
+      wIcon.src = "Images/clear.png";
+    } else if (id >= 200 && id <= 232) {
+      wIcon.src = "Images/storm.png";
+    } else if (id >= 600 && id <= 622) {
+      wIcon.src = "Images/snow.png";
+    } else if (id >= 701 && id <= 781) {
+      wIcon.src = "Images/haze.png";
+    } else if (id >= 801 && id <= 804) {
+      wIcon.src = "Images/cloudy(1).png";
+    } else if ((id >= 300 && id <= 321)(id >= 500 && id <= 531)) {
+      wIcon.src = "Images/rain.png";
+    } else {
+      alert("else function");
+      //wIcon.src = "Images/rain.png";
+    }
+
+    var weather_section = document.querySelector(".weather-details");
+    weather_section.classList.remove("d-none");
+    weather_section.classList.add("d-flex");
+    //wIcon.src = "Images/rain.png";
+
+    document.querySelector(".temperature .current_temp").innerText =
+      info.main.temp;
+    document.querySelector(".temperature .feel_like_temp").innerText =
+      info.main.feels_like;
+    document.querySelector(".humidity .humidity_data").innerText =
+      info.main.humidity + "%";
+    document.querySelector(".weather.description").innerText =
+      info.weather[0].main;
+    document.querySelector(".location .location-name").innerText =
+      info.name + ", " + info.sys.country;
+  }
+}
